@@ -5,11 +5,12 @@ function buscaralumnos(Gpo)
 {
 	 datos="Grupo="+Gpo;
 	 $.ajax({
-		      type:"POST",
-			  url:"http://"+IP+"/lista/agregar.php",
-			  data:datos
+		      type: "POST",
+			  url: "http://" + IP + "/lista/agregar.php",
+			  data: datos
 	 }).done(function(msg){
-		 if(msg=="*"||msg==null)
+		 alert(msg);
+		 if(msg=="*" || msg==null)
 		 {alert("No se encontraron alumnos en ese grupo");
 		 }
 		 else
@@ -23,17 +24,15 @@ $(document).ready(function(e){
 	document.addEventListener("deviceready",function(){
 		
 		$('.Enviar').tap(function(){
-			alert ("ENviar");
+			
 			var formulario=$(this).parents('form');
 			switch(formulario.attr('name'))
 			{
 				case 'enviarF':
-				alert ("Dentro formulario enviarF");
-				IP=document.getElementById('conectar').value;
-				alert (IP);
 				
-				alert (document.getElementById('Grupo').value);
-				buscarlaumnos(document.getElementById('Grupo').value);
+				IP=document.getElementById('conectar').value;
+				
+				buscaralumnos(document.getElementById('Grupo').value);
 				break;
 			}
 		});
