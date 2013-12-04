@@ -1,8 +1,39 @@
 // JavaScript Document
 
-
+var IP="";
+function buscaralumnos(Gpo)
+{
+	 datos="Grupo="+Gpo;
+	 $.ajax({
+		      type:"POST",
+			  url:"http://"+IP+"/lista/agregar.php",
+			  data:datos
+	 }).done(function(msg){
+		 if(msg=="*"||msg==null)
+		 {alert("No se encontraron alumnos en ese grupo");
+		 }
+		 else
+		 {
+			 alert(msg);
+		 }
+	 });
+}
+		 
 $(document).ready(function(e){
 	document.addEventListener("deviceready",function(){
+		
+		$('.Enviar').tap(function(){
+			var formulario=$(this).parents('form');
+			switch(formulario.attr('name'))
+			{
+				case 'enviarF':
+				IP=document.getElementById('conectar').value;
+				buscarlaumnos(document.getElementById('Grupo').value);
+				break;
+			}
+		});
+		
+		
 var db=openDatabase("PaseLista","1.0","PaseLista",65535);
 
 
