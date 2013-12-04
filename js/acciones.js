@@ -23,11 +23,15 @@ $(document).ready(function(e){
 	document.addEventListener("deviceready",function(){
 		
 		$('.Enviar').tap(function(){
+			alert ("ENviar");
 			var formulario=$(this).parents('form');
 			switch(formulario.attr('name'))
 			{
 				case 'enviarF':
+				alert ("Dentro formulario enviarF");
 				IP=document.getElementById('conectar').value;
+				alert ("IP");
+				alert (document.getElementById('Grupo').value);
 				buscarlaumnos(document.getElementById('Grupo').value);
 				break;
 			}
