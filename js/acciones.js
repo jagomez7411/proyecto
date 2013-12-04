@@ -15,8 +15,7 @@ function buscaralumnos(Gpo)
 		 else
 		 {
 			 var OAlumno=jQuery.parseJSON(JSON.stringify(msg));
-			 alert(OAlumnos[1].Nombre);
-			 alert(OAlumnos[3].ApellidoP);
+			 alert(OAlumnos[0].Nombre);
 		 }
 	 });
 }
