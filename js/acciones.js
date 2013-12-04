@@ -26,7 +26,7 @@ $('#TabAsistencias').bind("click",function(event){
 
 	db.transaction(function(ejecutar) {
 		
-	var SQL="CREATE TABLE Asistencias(NoControl VARCHAR(14) NOT NULL, Fecha TEXT NOT NULL, Asistencia INTEGER NOT NULL, Asignatura TEXT NOT NULL)"			
+	var SQL="CREATE TABLE Asistencias(NoControl VARCHAR(14) NOT NULL, Fecha TEXT NOT NULL, Asistencia INTEGER NOT NULL, Asignatura VARCHAR(10) NOT NULL)"			
 
 ejecutar.executeSql(SQL,undefined, function() {				
 
@@ -50,17 +50,43 @@ alert("Tabla Grupos Creada");
    });//ejecutar 
    });//click crear	
    
-$('#Eliminar').bind("click",function(event){
+$('#EliminarAlumnos').bind("click",function(event){
 
 	if(!confirm("Borrar Tabla?? ",""))return;
 	db.transaction(function(ejecutar) {
-	var SQL="DROP TABLE Clientes";
+	var SQL="DROP TABLE Alumnos";
 	ejecutar.executeSql(SQL,undefined, function() {				
-    alert("Tabla Borrada");
+    alert("Tabla Alumnos Borrada");
 
    }, error); 
    });//ejecutar 
    });//click eliminar 
+   
+$('#EliminarAsistencia').bind("click",function(event){
+
+	if(!confirm("Borrar Tabla?? ",""))return;
+	db.transaction(function(ejecutar) {
+	var SQL="DROP TABLE Asistencias";
+	ejecutar.executeSql(SQL,undefined, function() {				
+    alert("Tabla Asistencias Borrada");
+
+   }, error); 
+   });//ejecutar 
+   });//click eliminar 
+   
+$('#EliminarGrupos').bind("click",function(event){
+
+	if(!confirm("Borrar Tabla?? ",""))return;
+	db.transaction(function(ejecutar) {
+	var SQL="DROP TABLE Grupos";
+	ejecutar.executeSql(SQL,undefined, function() {				
+    alert("Tabla Grupos Borrada");
+
+   }, error); 
+   });//ejecutar 
+   });//click eliminar 
+
+
 
 $("#Insertar").bind ("click", function (event)
 {
