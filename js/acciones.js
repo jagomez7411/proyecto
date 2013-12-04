@@ -50,6 +50,20 @@ alert("Tabla Grupos Creada");
    });//ejecutar 
    });//click crear	
    
+$('#TabAsignatura').bind("click",function(event){
+
+	db.transaction(function(ejecutar) {
+		
+	var SQL="CREATE TABLE Asignaturas(Asignatura VARCHAR(10) NOT NULL, Nombre TEXT NOT NULL)"			
+
+ejecutar.executeSql(SQL,undefined, function() {				
+
+alert("Tabla Asignaturas Creada");
+
+   }, error); 
+   });//ejecutar 
+   });//click crear
+      
 $('#EliminarAlumnos').bind("click",function(event){
 
 	if(!confirm("Borrar Tabla?? ",""))return;
@@ -86,7 +100,17 @@ $('#EliminarGrupos').bind("click",function(event){
    });//ejecutar 
    });//click eliminar 
 
+$('#EliminarAsignaturas').bind("click",function(event){
 
+	if(!confirm("Borrar Tabla?? ",""))return;
+	db.transaction(function(ejecutar) {
+	var SQL="DROP TABLE Asignaturas";
+	ejecutar.executeSql(SQL,undefined, function() {				
+    alert("Tabla Asignaturas Borrada");
+
+   }, error); 
+   });//ejecutar 
+   });//click elimina
 
 $("#Insertar").bind ("click", function (event)
 {
