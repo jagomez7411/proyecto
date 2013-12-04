@@ -30,7 +30,8 @@ $(document).ready(function(e){
 				case 'enviarF':
 				alert ("Dentro formulario enviarF");
 				IP=document.getElementById('conectar').value;
-				alert ("IP");
+				alert (IP);
+				
 				alert (document.getElementById('Grupo').value);
 				buscarlaumnos(document.getElementById('Grupo').value);
 				break;
